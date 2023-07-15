@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 import { auth } from '../firebase';
 import { Link} from 'react-router-dom';
 
  
 const Signup = () => {
-    const navigate = useNavigate();
-    const [values,setValues] = useState({
+     const [values,setValues] = useState({
         name:"",
         email:"",
         pass:"",
