@@ -3,10 +3,14 @@ import { MagnifyingGlassIcon,
          ShoppingCartIcon,
          Bars3Icon,
 } from "@heroicons/react/24/outline";
+import { Link} from 'react-router-dom';
+import Home from './Home'
 
-const Header = () => {
+function Header({props}) {
+   
   return (
-    <header>
+   <div>
+       <header>
         {/* top nav */}
         <div className=' flex items-center bg-gray-800 p-2 flex-grow py-2'>
             <div className='mt-2 mr-4 flex items-center flex-grow sm:flex-grow-0'>
@@ -25,10 +29,10 @@ const Header = () => {
              </div>
              {/* right */}
              <div className='text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap'>
-             <div className='link'>
-               <p>Hello Raushan</p>
+             <Link to="/signup" className='link'>
+               <p>Hii Raushan</p>
                <p className='font-extrabold md:text-sm' >Account & Lists</p>
-             </div>
+             </Link>
              <div className='link'>
                 <p>Returns</p>
                 <p className='font-extrabold md:text-sm'>orders</p>
@@ -60,6 +64,8 @@ const Header = () => {
             
         </div>
     </header>
+     <Home/>
+   </div>
   )
 }
 
