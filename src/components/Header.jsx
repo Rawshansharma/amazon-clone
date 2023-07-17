@@ -11,8 +11,7 @@ import Home from './Home'
 
 function Header() {
   const navigate = useNavigate();
-  const user = auth.currentUser;
-   const logoutUser = async (e) => {
+    const logoutUser = async (e) => {
     e.preventDefault();
 
     await signOut(auth);
