@@ -1,4 +1,7 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 import { MagnifyingGlassIcon,
          ShoppingCartIcon,
          Bars3Icon,
@@ -6,7 +9,15 @@ import { MagnifyingGlassIcon,
 import { Link} from 'react-router-dom';
 import Home from './Home'
 
-function Header({props}) {
+function Header() {
+  const navigate = useNavigate();
+  const user = auth.currentUser;
+   const logoutUser = async (e) => {
+    e.preventDefault();
+
+    await signOut(auth);
+    navigate("/");
+}
    
   return (
    <div>
@@ -30,7 +41,7 @@ function Header({props}) {
              {/* right */}
              <div className='text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap'>
              <Link to="/signup" className='link'>
-               <p>Hii Raushan</p>
+               <p onClick = {(e) => logoutUser(e)}>Hey Raushan!</p>
                <p className='font-extrabold md:text-sm' >Account & Lists</p>
              </Link>
              <div className='link'>
