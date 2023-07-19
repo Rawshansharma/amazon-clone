@@ -11,6 +11,8 @@ import Home from './Home'
 
 function Header() {
   const navigate = useNavigate();
+  const user = auth.currentUser;
+  
     const logoutUser = async (e) => {
     e.preventDefault();
 
@@ -40,7 +42,8 @@ function Header() {
              {/* right */}
              <div className='text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap'>
              <Link to="/signup" className='link'>
-               <p onClick = {(e) => logoutUser(e)}>Hey Raushan!</p>
+               <p onClick = {(e) => logoutUser(e)}>{(user !== null) ? user.email.split("@")[0]
+: "hey login plz"}</p>
                <p className='font-extrabold md:text-sm' >Account & Lists</p>
              </Link>
              <div className='link'>
